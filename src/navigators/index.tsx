@@ -8,6 +8,8 @@ import React from 'react';
 import HomeScreen from '../screens/home';
 import {HOME_SCREEN_NAME} from '../screens/home/constants';
 import {View} from 'react-native';
+import {useTranslation} from 'react-i18next';
+import { Tr } from 'shared/language';
 
 export const navigationRef: React.RefObject<NavigationContainerRef<any>> =
   React.createRef();
@@ -39,7 +41,7 @@ function AppNavigator() {
           name="HomeStack"
           component={HomeStack}
           options={{
-            tabBarLabel: 'Home',
+            tabBarLabel: Tr('common:home'),
             // tabBarIcon: ({color, size}) => (
             //   <View style={{size: size, color: color}} />
             // ),

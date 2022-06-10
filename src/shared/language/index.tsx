@@ -1,5 +1,5 @@
 import i18next from 'i18next';
-import {initReactI18next} from 'react-i18next';
+import {initReactI18next, useTranslation} from 'react-i18next';
 import {VI, EN} from './language';
 
 const languageDetector: any = {
@@ -22,8 +22,9 @@ i18next
     },
   });
 
-export function translate(path: any) {
-  return i18next.t(path);
+export function Tr(path: any) {
+  const {t} = useTranslation();
+  return t(path);
 }
 export function changeLanguage(alias: any) {
   i18next.changeLanguage(alias);
