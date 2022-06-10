@@ -32,7 +32,7 @@ function AppNavigator() {
     <NavigationContainer ref={navigationRef}>
       <Tab.Navigator
         initialRouteName="HomeStack"
-        tabBarOptions={{
+        screenOptions={{
           activeTintColor: '#42f44b',
         }}>
         <Tab.Screen
