@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import {ofType, Obsavable} from 'redux-observable';
+import {ofType} from 'redux-observable';
 import {FETCH_SAMPLE_API} from '../constants';
 import {catchError, map, mergeMap} from 'rxjs/operators';
 import {FetchSampleAPIFailed, FetchSampleAPISuccess} from './actions';
 import {of} from 'rxjs';
-import { request } from 'shared/functions/apiClient';
+import {request} from 'shared/functions/apiClient';
 
 const fetchSampleAPIEpic = action$ =>
   action$.pipe(
