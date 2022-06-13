@@ -4,15 +4,14 @@ import {
   NavigationContainerRef,
 } from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
 import HomeScreen from '../screens/home';
 import {HOME_SCREEN_NAME} from '../screens/home/constants';
 import {View} from 'react-native';
-import {useTranslation} from 'react-i18next';
-import { Tr } from 'shared/language';
-import { useDispatch, useSelector, useStore } from 'react-redux';
-import { ChangLanguage } from 'rootRedux/actions';
-import { RootState } from 'rootRedux/store/rootReducer';
+import {Tr} from 'shared/language';
+import {useDispatch, useSelector, useStore} from 'react-redux';
+import {ChangLanguage} from 'rootRedux/actions';
+import {RootState} from 'rootRedux/store/rootReducer';
 
 export const navigationRef: React.RefObject<NavigationContainerRef<any>> =
   React.createRef();
