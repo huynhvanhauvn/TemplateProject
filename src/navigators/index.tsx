@@ -7,11 +7,15 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React, {useEffect} from 'react';
 import HomeScreen from '../screens/home';
 import {HOME_SCREEN_NAME} from '../screens/home/constants';
-import {View} from 'react-native';
 import {Tr} from 'shared/language';
-import {useDispatch, useSelector, useStore} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {ChangLanguage} from 'rootRedux/actions';
 import {RootState} from 'rootRedux/store/rootReducer';
+// import Icon from 'react-native-vector-icons/AntDesign';
+import {CATEGORY_SCREEN_NAME} from 'screens/category/constants';
+import CategoryScreen from 'screens/category';
+import {SETTING_SCREEN_NAME} from 'screens/setting/constants';
+import SettingScreen from 'screens/setting';
 
 export const navigationRef: React.RefObject<NavigationContainerRef<any>> =
   React.createRef();
@@ -31,9 +35,34 @@ function HomeStack() {
   );
 }
 
+function CategoryStack() {
+  return (
+    <Stack.Navigator initialRouteName={CATEGORY_SCREEN_NAME}>
+      <Stack.Screen
+        name={CATEGORY_SCREEN_NAME}
+        component={CategoryScreen}
+        options={{headerShown: false}}
+      />
+    </Stack.Navigator>
+  );
+}
+
+function SettingStack() {
+  return (
+    <Stack.Navigator initialRouteName={SETTING_SCREEN_NAME}>
+      <Stack.Screen
+        name={SETTING_SCREEN_NAME}
+        component={SettingScreen}
+        options={{headerShown: false}}
+      />
+    </Stack.Navigator>
+  );
+}
+
 function AppNavigator() {
   const dispatch = useDispatch();
   const state = useSelector((state: RootState) => state);
+  // Icon.loadFont();
 
   useEffect(() => {
     dispatch(ChangLanguage.get(state.RootReducer.language));
@@ -42,37 +71,37 @@ function AppNavigator() {
   return (
     <NavigationContainer ref={navigationRef}>
       <Tab.Navigator
-        initialRouteName="HomeStack"
+        initialRouteName={Tr('common:home')}
         screenOptions={{
           activeTintColor: '#42f44b',
         }}>
         <Tab.Screen
-          name="HomeStack"
+          name={Tr('common:home')}
           component={HomeStack}
           options={{
             tabBarLabel: Tr('common:home'),
             // tabBarIcon: ({color, size}) => (
-            //   <View style={{size: size, color: color}} />
+            //   <Icon name='home' size={size} color={color} />
             // ),
           }}
         />
         <Tab.Screen
-          name="AStack"
-          component={HomeStack}
+          name={Tr('common:category')}
+          component={CategoryStack}
           options={{
-            tabBarLabel: 'A',
+            tabBarLabel: Tr('common:category'),
             // tabBarIcon: ({color, size}) => (
-            //   <View style={{size: size, color: color}} />
+            //   <Icon name='appstore-o' size={size} color={color} />
             // ),
           }}
         />
         <Tab.Screen
-          name="BStack"
-          component={HomeStack}
+          name={Tr('common:setting')}
+          component={SettingStack}
           options={{
-            tabBarLabel: 'B',
+            tabBarLabel: Tr('common:setting'),
             // tabBarIcon: ({color, size}) => (
-            //   <View style={{size: size, color: color}} />
+            //   <Icon name='setting' size={size} color={color} />
             // ),
           }}
         />

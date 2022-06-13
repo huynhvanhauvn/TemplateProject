@@ -5,7 +5,6 @@ import {useDispatch} from 'react-redux';
 import {FetchSampleAPI} from './redux/actions';
 import {ChangLanguage} from 'rootRedux/actions';
 import {Tr} from 'shared/language';
-// import {styles} from './styles';
 
 interface Props {}
 
