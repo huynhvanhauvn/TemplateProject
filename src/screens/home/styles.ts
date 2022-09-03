@@ -6,4 +6,9 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  btn: {
+    backgroundColor: 'blue',
+    padding: 4,
+    borderRadius: 4,
+  },
 });
