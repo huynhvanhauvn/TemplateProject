@@ -13,6 +13,7 @@ export default (state: IRootState = INIT_STATE, action: any) => {
     case 'CHANGE_LANGUAGE':
       changeLanguage(action.payload);
       return {
+        ...state,
         language: action.payload,
       };
 

@@ -12,7 +12,7 @@ const persistConfig = {
   version: 0,
   storage: AsyncStorage,
   blacklist: [],
-  whitelist: ['Root'],
+  whitelist: ['RootReducer'],
   stateReconciler: autoMergeLevel2,
 };
 
